@@ -1,0 +1,77 @@
+\mode<presentation>
+
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+    % Define bounding box
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \ifnum\thepage=1\relax%
+    % Define title page
+    % Put main background image
+    \node[above right, inner sep=0pt] at (2.53, 1.5)
+    {\includegraphics[width=13.54cm]{figures/TCV.jpg}};
+    % Put EPFL logo
+    \node[above right, inner sep=0pt] at (0.36,8.15)
+    {\includegraphics[width=1.8cm]{figures/EPFL_logo}};
+    % Put SPC logo
+    \node[above right, inner sep=0pt] at (0.1,0.2)
+    {\includegraphics[width=1.cm]{figures/SPC_logo.png}};
+
+    \fill[color=redEPFL, anchor=south west] (2.53,0) rectangle (17,3.5);
+    \else
+    % Put EPFL logo
+    \node[above right, inner sep=0pt] at (0.36,8.4)
+    {\includegraphics[width=1.cm]{figures/EPFL_logo}};
+    % Put SPC logo
+    \node[above right, inner sep=0pt] at (0.1,0.2)
+    {\includegraphics[width=1.cm]{figures/SPC_logo.png}};
+    \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{spc}[1][]
+{
+  \vskip5.5cm%
+  \begin{beamercolorbox}[wd=15.5cm,leftskip=2.3cm,sep=8pt,#1]{title page header}
+    \usebeamerfont{title}\textbf{\inserttitle}\par%
+  \end{beamercolorbox}%
+  \vskip-0.2cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=1.5cm,sep=8pt,#1]{author}
+    \usebeamerfont{author}\textbf{\insertauthor}%
+  \end{beamercolorbox}
+  \vskip-0.4cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=1.5cm,sep=8pt,#1]{date}
+    \usebeamerfont{author}\scriptsize\insertdate%
+  \end{beamercolorbox}
+  \vskip-0.4cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=1.5cm,sep=8pt,#1]{date}
+    \usebeamerfont{author}\scriptsize\insertinstitute%
+  \end{beamercolorbox}
+  \vfill
+}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]   {author in head/foot}%
+      \usebeamerfont{author in head/foot}\textcolor{greyEPFL!60}{\insertshortauthor}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \textcolor{greyEPFL!60}{\insertframenumber{} / \inserttotalframenumber}\hspace*{2ex}
+    \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\setbeamertemplate{itemize item}{%
+  \begin{tikzpicture}
+    \fill[color=redEPFL, anchor=south west, transform canvas={xshift=1mm,yshift=0.3mm}] (0,0) rectangle (0.1633,0.14);
+  \end{tikzpicture}
+}
+\setbeamertemplate{itemize subitem}{\color{redEPFL}$\blacktriangleright$}
+
+\mode
+<all>
